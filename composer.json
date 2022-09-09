@@ -1,5 +1,6 @@
 {
   "name": "matiux/php-project-autopilot",
+  "license": "MIT",
   "type": "library",
   "authors": [
     {
