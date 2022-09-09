@@ -5,12 +5,12 @@ project_dir="$(dirname "$0")"
 
 TOOLS_PATH='./tools'
 
-source "$project_dir/func_analysis.sh"
-source "$project_dir/func_badge.sh"
-source "$project_dir/func_composer.sh"
-source "$project_dir/func_deptrac.sh"
-source "$project_dir/func_doctrine.sh"
-source "$project_dir/func_phpunit.sh"
+source "$project_dir/functions/func_analysis.sh"
+source "$project_dir/functions/func_badge.sh"
+source "$project_dir/functions/func_composer.sh"
+source "$project_dir/functions/func_deptrac.sh"
+source "$project_dir/functions/func_doctrine.sh"
+source "$project_dir/functions/func_phpunit.sh"
 source "$project_dir/my_config.sh"
 
 if test -f "$project_dir/override.sh"; then

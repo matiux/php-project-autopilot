@@ -7,10 +7,10 @@ Move scripts into project by adding cp command in composer.json file
 {
   "scripts": {
     "post-install-cmd": [
-      "bash vendor/matiux/php-project-autopilot/tool/configure.sh"
+      "bash vendor/matiux/php-project-autopilot/src/configure.sh"
     ],
     "post-update-cmd": [
-      "bash vendor/matiux/php-project-autopilot/tool/configure.sh"
+      "bash vendor/matiux/php-project-autopilot/src/configure.sh"
     ]
   }
 }
