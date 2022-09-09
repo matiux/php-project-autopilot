@@ -1,5 +1,5 @@
 project
 *.sh
-!custom.sh
+!my_config.sh
 !override.sh
 .gitignore

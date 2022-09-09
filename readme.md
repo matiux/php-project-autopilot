@@ -17,11 +17,7 @@ Move scripts into project by adding cp command in composer.json file
 ```
 
 After installation, if necessary, customize `check_all`, `setup` functions and the list of supported operations by
-overriding `custom.sh` file.
-
-```bash
-cp tools/bin/project/custom.template.sh tools/bin/project/custom.sh
-```
+editing `my_config.sh` file.
 
 You can also override existing functions:
 

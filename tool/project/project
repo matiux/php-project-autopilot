@@ -11,10 +11,7 @@ source "$project_dir/func_composer.sh"
 source "$project_dir/func_deptrac.sh"
 source "$project_dir/func_doctrine.sh"
 source "$project_dir/func_phpunit.sh"
-
-if test -f "$project_dir/custom.sh"; then
-    source "$project_dir/custom.sh"
-fi
+source "$project_dir/my_config.sh"
 
 if test -f "$project_dir/override.sh"; then
     source "$project_dir/override.sh"
