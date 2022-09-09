@@ -1,0 +1,17 @@
+{
+  "name": "matiux/php-project-autopilot",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Matteo Galacci",
+      "email": "m.galacci@gmail.com"
+    }
+  ],
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  }
+}

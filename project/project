@@ -1,0 +1,25 @@
+#! /bin/bash
+
+declare -A operations
+project_dir="$(dirname "$0")"
+
+TOOLS_PATH='./tools'
+
+source "$project_dir/func_analysis.sh"
+source "$project_dir/func_badge.sh"
+source "$project_dir/func_composer.sh"
+source "$project_dir/func_deptrac.sh"
+source "$project_dir/func_doctrine.sh"
+source "$project_dir/func_phpunit.sh"
+source "$project_dir/custom.sh"
+source "$project_dir/override.sh"
+
+PHP_STAGED_FILES=$(git diff --name-only --cached --diff-filter=ACMR -- '*.php' | sed 's| |\\ |g')
+CMD=$1
+shift 1
+
+php_staged_files() {
+  echo "$PHP_STAGED_FILES"
+}
+
+if [[ ${operations[$CMD]} ]]; then eval "${operations[$CMD]}"; else echo "Operazione non valida: $CMD"; fi
