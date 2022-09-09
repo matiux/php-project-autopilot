@@ -11,8 +11,14 @@ source "$project_dir/func_composer.sh"
 source "$project_dir/func_deptrac.sh"
 source "$project_dir/func_doctrine.sh"
 source "$project_dir/func_phpunit.sh"
-source "$project_dir/custom.sh"
-source "$project_dir/override.sh"
+
+if test -f "$project_dir/custom.sh"; then
+    source "$project_dir/custom.sh"
+fi
+
+if test -f "$project_dir/override.sh"; then
+    source "$project_dir/override.sh"
+fi
 
 PHP_STAGED_FILES=$(git diff --name-only --cached --diff-filter=ACMR -- '*.php' | sed 's| |\\ |g')
 CMD=$1
