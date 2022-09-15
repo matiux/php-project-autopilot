@@ -11,7 +11,7 @@ coverage() {
 
   export XDEBUG_MODE=off
 
-  if [[ "$TEST_STATUS" -eq 0 ]]; then
+  if [[ "$INTERNAL_BADGE_CREATION" == true ]] && [[ "$TEST_STATUS" -eq 0 ]]; then
     create_badge test passed phpunit
     coverage_badge
   fi
@@ -30,7 +30,7 @@ phpunit() {
 
   local TEST_STATUS=$?
 
-  if [[ "$TEST_STATUS" -eq 0 ]]; then
+  if [[ "$INTERNAL_BADGE_CREATION" == true ]] && [[ "$TEST_STATUS" -eq 0 ]]; then
     create_badge test passed phpunit
   fi
 

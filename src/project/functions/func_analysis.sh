@@ -7,9 +7,13 @@ check_deps_vulnerabilities() {
 
   if [[ "$STATUS" -eq 0 ]]; then
     echo -e "\e[42mDependency vulnerability check is OK\e[m"
-    create_badge "deps vulnerability check" passed deps_check
-    return 0 # true
+
+    if [[ "$INTERNAL_BADGE_CREATION" == true ]]; then
+      create_badge "deps vulnerability check" passed deps_check
+    fi
   fi
+
+  return $STATUS
 }
 
 infection() {
@@ -28,7 +32,8 @@ psalm() {
 
   local PSALM_STATUS=$?
 
-  if [[ "$PSALM_STATUS" -eq 0 ]]; then
+  if [[ "$INTERNAL_BADGE_CREATION" == true ]] && [[ "$PSALM_STATUS" -eq 0 ]]; then
+
     create_badge "static analysis" passed psalm
 
     if [[ "$@" == *"--taint-analysis"* ]]; then

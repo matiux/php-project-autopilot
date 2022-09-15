@@ -1,5 +1,7 @@
 #! /bin/bash
 
+INTERNAL_BADGE_CREATION=false
+
 check_all() {
   coding_standard_fix --dry-run ./src ./tests
   if [[ "$?" -ne 0 ]]; then return 1; fi
