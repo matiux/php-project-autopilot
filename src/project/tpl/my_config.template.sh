@@ -38,8 +38,8 @@ operations["php_staged_files"]="php_staged_files"
 operations["check-deps-vulnerabilities"]="check_deps_vulnerabilities"
 operations["setup-test"]="APP_RUNTIME_ENV='test' setup"
 operations["setup-dev"]="APP_RUNTIME_ENV='dev' setup"
-operations["phpunit"]='phpunit "$@"'
-operations["coverage"]='phpunit "$@"; exit $?'
+operations["phpunit"]='phpunit "$@"; exit $?'
+operations["coverage"]='coverage; exit $?'
 operations["psalm"]='psalm "$@"; exit $?'
 operations["psalm-taint"]='psalm --taint-analysis "$@"; exit $?'
 operations["coding-standard-fix"]='coding_standard_fix "$@"; exit $?'
