@@ -11,6 +11,11 @@ check_deps_vulnerabilities() {
     if [[ "$INTERNAL_BADGE_CREATION" == true ]]; then
       create_badge "deps vulnerability check" passed deps_check
     fi
+
+  else
+    if [[ "$INTERNAL_BADGE_CREATION" == true ]]; then
+      create_badge "deps vulnerability check" failed deps_check
+    fi
   fi
 
   return $STATUS
@@ -32,12 +37,23 @@ psalm() {
 
   local PSALM_STATUS=$?
 
-  if [[ "$INTERNAL_BADGE_CREATION" == true ]] && [[ "$PSALM_STATUS" -eq 0 ]]; then
-
-    create_badge "static analysis" passed psalm
+  if [[ "$INTERNAL_BADGE_CREATION" == true ]]; then
 
     if [[ "$@" == *"--taint-analysis"* ]]; then
-      create_badge "taint analysis" passed psalm_taint
+
+      if [[ "$PSALM_STATUS" -eq 0 ]]; then
+        create_badge "taint analysis" passed psalm_taint
+      else
+        create_badge "taint analysis" failed psalm_taint
+      fi
+
+    else
+
+      if [[ "$PSALM_STATUS" -eq 0 ]]; then
+        create_badge "static analysis" passed psalm
+      else
+        create_badge "static analysis" failed psalm
+      fi
     fi
   fi
 
