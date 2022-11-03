@@ -22,7 +22,7 @@ deptrac_table() {
   ./vendor/bin/deptrac analyse \
     --config-file "$DEPFILE" \
     --no-cache \
-    --formatter=table "$OPTIONS"
+    --formatter=table $OPTIONS
 }
 
 deptrac_table_all() {
@@ -31,11 +31,9 @@ deptrac_table_all() {
 
   for f in $DEPTRAC_CONFIG_FILES; do
     echo "$f"
-    deptrac_table "$f" "$OPTIONS"
+    deptrac_table "$f" $OPTIONS
 
     local STATUS=$?
-
-#    echo $STATUS
 
     if [[ "$STATUS" -ne 0 ]]; then
       return 1 #false
