@@ -12,6 +12,7 @@ database_drop() {
   php bin/console \
     doctrine:database:drop \
     --force \
+    --if-exists \
     --no-interaction \
     --env="${APP_RUNTIME_ENV}"
 }
