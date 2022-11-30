@@ -22,10 +22,10 @@ check_deps_vulnerabilities() {
 }
 
 infection() {
-
+#--threads=4 \
   ./vendor/bin/infection \
     run \
-    --threads=4 \
+    -j$(nproc) \
     --configuration="$TOOLS_PATH"/infection/infection.json \
     --verbose \
     --debug \
