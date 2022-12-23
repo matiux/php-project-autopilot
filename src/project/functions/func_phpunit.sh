@@ -25,7 +25,21 @@ coverage() {
 }
 
 phpunit() {
-  ./bin/phpunit \
+
+  local PHPUNIT_BIN
+
+  if [ -f "./bin/phpunit" ]; then
+    PHPUNIT_BIN=./bin/phpunit
+  elif [ -f "./vendor/bin/phpunit" ]; then
+    PHPUNIT_BIN=./vendor/bin/phpunit
+  fi
+
+  if [ -z "$PHPUNIT_BIN" ]; then
+    echo "PHPUnit executable does not found";
+    exit 1;
+  fi
+
+  $PHPUNIT_BIN \
     --configuration "$TOOLS_PATH"/phpunit/phpunit.xml.dist \
     --exclude-group learning \
     --colors=always \
