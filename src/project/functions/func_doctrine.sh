@@ -24,6 +24,12 @@ migrate() {
     --env="${APP_RUNTIME_ENV}"
 }
 
+doctrine_schema_create() {
+    vendor/bin/doctrine \
+    orm:schema-tool:create \
+    --no-interaction
+}
+
 schema_drop() {
   php bin/console \
     doctrine:schema:drop \
