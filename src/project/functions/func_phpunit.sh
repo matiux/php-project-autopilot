@@ -32,6 +32,8 @@ phpunit() {
     PHPUNIT_BIN=./bin/phpunit
   elif [ -f "./vendor/bin/phpunit" ]; then
     PHPUNIT_BIN=./vendor/bin/phpunit
+  elif [ -f "./vendor/bin/simple-phpunit" ]; then
+    PHPUNIT_BIN=./vendor/bin/simple-phpunit
   fi
 
   if [ -z "$PHPUNIT_BIN" ]; then
